@@ -1,86 +1,58 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-}
+/* src/App.css */
 
 .app-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.app-container h1 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.counter {
-  background: #fff;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
   text-align: center;
-  width: 280px;
-  transition: transform 0.2s ease;
 }
 
-.counter:hover {
-  transform: translateY(-3px);
-}
-
-.counter h1 {
-  font-size: 56px;
+h1 {
   margin-bottom: 20px;
-  transition: color 0.3s ease;
 }
 
-.controls {
+form {
   display: flex;
-  justify-content: center;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 20px;
-}
-
-button {
-  flex: 1;
-  padding: 10px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background: #4a90e2;
-  color: white;
-  transition: 0.2s ease;
-}
-
-button:hover {
-  background: #357abd;
-}
-
-button:active {
-  transform: scale(0.95);
 }
 
 input {
-  margin-top: 10px;
+  flex: 1;
   padding: 8px;
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  text-align: center;
   font-size: 16px;
-  outline: none;
 }
 
-input:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-item span {
+  cursor: pointer;
+}
+
+.task-item button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.task-item button:hover {
+  background: #e60000;
 }

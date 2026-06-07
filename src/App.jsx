@@ -1,12 +1,58 @@
 // src/App.jsx
-import Counter from "./components/Counter";
-import "./App.css";
 
-export default function App() {
+import { useState } from 'react';
+import TaskForm from './components/TaskForm';
+import TaskItem from './components/TaskItem';
+import './App.css';
+
+function App() {
+  const [tasks, setTasks] = useState([]);
+
+  // Функція додавання задачі
+  const addTask = (text) => {
+    const newTask = {
+      id: Date.now(),
+      text,
+      completed: false,
+    };
+
+    setTasks([...tasks, newTask]);
+  };
+
+  // Перемикання статусу (виконано/не виконано)
+  const toggleTask = (id) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id
+          ? { ...task, completed: !task.completed }
+          : task
+      )
+    );
+  };
+
+  // Видалення задачі
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   return (
     <div className="app-container">
-      <h1>Counter App</h1>
-      <Counter />
+      <h1>Мій To-Do List на React</h1>
+
+      <TaskForm addTask={addTask} />
+
+      <ul>
+        {tasks.map((task) => (
+          <TaskItem
+            key={task.id}
+            task={task}
+            onToggle={toggleTask}
+            onDelete={deleteTask}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
+
+export default App;
